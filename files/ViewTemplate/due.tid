@@ -1,0 +1,15 @@
+title: $:/plugins/sortega/tiddlypredict/due
+tags: $:/tags/ViewTemplate/Subtitle
+
+<$list filter="[all[current]has[prediction-type]]">
+    <$list filter="[all[current]!has[resolution]]">
+        <span class="tp-due">
+        <$let current-ms=<<now TIMESTAMP>>
+              delta-ms={{{ [all[current]get[due]format:date[TIMESTAMP]subtract<current-ms>floor[]] }}}>
+            <$list filter="[<delta-ms>compare:number:lt[0]]">Overdue since</$list>
+            <$list filter="[<delta-ms>compare:number:gteq[0]]">Due for</$list>
+            <$view field="due" format="date" template={{$:/language/Tiddler/DateFormat}}/>
+        </$let>
+        </span>
+    </$list>
+</$list>

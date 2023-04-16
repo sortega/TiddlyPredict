@@ -1,0 +1,20 @@
+title: $:/plugins/sortega/tiddlypredict/ui/PredictionStatus
+type: text/vnd.tiddlywiki
+list-before: $:/core/ui/Buttons/more-tiddler-actions
+tags: $:/tags/ViewToolbar
+
+<$list filter="[all[current]has[prediction-type]]">
+  <span class='tp-status'>
+    <$list filter="[all[current]get[prediction]multiply[100]addsuffix[%]]">
+      <$text text=<<currentTiddler>>/>
+    </$list>
+    &gt;
+    <$list filter="[all[current]has[prediction-type]]">
+      <$select default='' field='resolution' class='tc-tag-label tc-btn-invisible'>
+        <option value=''>???</option>
+        <option value='false'>false</option>
+        <option value='true'>true</option>
+      </$select>
+    </$list>
+  </span>
+</$list>

@@ -1,0 +1,16 @@
+title: $:/plugins/sortega/tiddlypredict/styles
+tags: $:/tags/Stylesheet
+
+.tp-header-icon {
+  float: left;
+  position: relative;
+  top: 1ex;
+}
+
+.tp-status {
+  font-size: 80%;
+}
+
+.tp-due {
+  color: <<colour foreground>>;
+}

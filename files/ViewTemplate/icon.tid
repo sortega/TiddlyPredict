@@ -1,0 +1,12 @@
+title: $:/plugins/sortega/tiddlypredict/ViewTemplate/icon
+type: text/vnd.tiddlywiki
+list-before: $:/core/ui/ViewTemplate/title
+modified: 20230413121353329
+tags: $:/tags/ViewTemplate
+
+\whitespace trim
+<$list filter="[all[current]has[prediction-type]]">
+<span class="tc-tiddler-title-icon tp-header-icon" style=<<title-styles>>>
+{{$:/plugins/sortega/tiddlypredict/icons/forecast}}
+</span>
+</$list>

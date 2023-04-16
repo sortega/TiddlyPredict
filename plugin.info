@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/sortega/tiddlypredict",
+	"name": "TiddlyPredict",
+	"description": "Make, score and show stats about your predictions",
+	"author": "Sebastián Ortega",
+	"version": "0.0.1",
+	"core-version": ">=5.0.8",
+	"source": "https://github.com/sortega/TiddlyPredict",
+	"plugin-type": "plugin"
+}
