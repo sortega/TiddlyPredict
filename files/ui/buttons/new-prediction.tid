@@ -1,0 +1,22 @@
+title: $:/plugins/sortega/tiddlypredict/ui/Buttons/new-prediction
+type: text/vnd.tiddlywiki
+list-before: $:/core/ui/Buttons/new-tiddler
+tags: $:/tags/PageControls
+
+\whitespace trim
+<$button tooltip="Create a new prediction" class=<<tv-config-toolbar-class>>>
+    <$action-createtiddler
+        $basetitle="Prediction"
+        prediction-type="binary"
+        due=""
+        prediction=""
+        resolution="">
+        <$action-sendmessage $message="tm-edit-tiddler" $param=<<createTiddler-title>>/>
+    </$action-createtiddler>
+    <$list filter="[<tv-config-toolbar-icons>match[yes]]">
+        {{$:/plugins/sortega/tiddlypredict/icons/add-forecast}}
+    </$list>
+    <$list filter="[<tv-config-toolbar-text>match[yes]]">
+        <span class="tc-btn-text"><$text text="Add prediction"/></span>
+    </$list>
+</$button>
