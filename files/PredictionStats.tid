@@ -1,0 +1,41 @@
+title: PredictionStats
+
+!! Accuracy
+[[Brier score|https://en.wikipedia.org/wiki/Brier_score]] of ??? (from ??? forecasts)
+
+!! Calibration
+
+<table>
+  <thead>
+    <tr>
+      <th>Bin</th>
+      <th>Proportion</th>
+      <th>Samples</th>
+    </tr>
+  </thead>
+  <tbody>
+  <$list filter="0 1 2 3 4 5 6 7 8 9" variable="bin">
+    <tr>
+      <td align="right">
+        <$list filter="[<bin>compare:int:lt[9]]">
+          [<$text text={{{ [<currentTiddler>multiply[10]] }}}/>,
+          <$text text={{{ [<currentTiddler>add[1]multiply[10]] }}}/>)%
+        </$list>
+        <$list filter="[<bin>compare:int:eq[9]]">
+          [90, 100]%
+        </$list>
+      </td>
+      <$let samples={{{ [prediction-type[binary]!resolution[]!is[draft]get[prediction]multiply[10]trunc[]min[9]match<bin>count[]] }}}
+            true-samples={{{ [prediction-type[binary]resolution[true]!is[draft]get[prediction]multiply[10]trunc[]min[9]match<bin>count[]] }}}
+            proportion={{{ [<true-samples>divide<samples>multiply[100]round[]] }}}>
+        <td align="right">
+            <$list filter={{{ [<samples>compare:int:ne[0]] }}} emptyMessage="N/A">
+                <<proportion>>%
+            </$list>
+        </td>
+        <td align="right"><<samples>></td>
+      </$let>
+    </tr>
+  </$list>
+  </tbody>
+</table>
