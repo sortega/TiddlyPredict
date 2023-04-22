@@ -5,6 +5,7 @@ tags: $:/tags/Stylesheet
   float: left;
   position: relative;
   top: 1ex;
+  margin-right: 0.5ex;
 }
 
 .tp-status {
@@ -13,4 +14,24 @@ tags: $:/tags/Stylesheet
 
 .tp-due {
   color: <<colour foreground>>;
+}
+
+.tp-prediction-template {
+  display: block;
+  overflow: auto;
+  position: relative;
+  clear: both;
+  background-color: <<colour code-background>>;
+  padding: 1ex;
+  margin: 1ex 0;
+}
+
+.tp-prediction-template .tp-due {
+  font-size: 0.9em;
+}
+
+.tp-prediction-template .tp-status {
+  float: right;
+  font-size: 120%;
+  padding: 1ex 0;
 }

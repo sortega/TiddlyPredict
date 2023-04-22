@@ -8,28 +8,31 @@ type: text/vnd.tiddlywiki
 
     <$link to={{!!title}}/>
     
-    <$list filter="[all[current]get[prediction]multiply[100]round[]addsuffix[%]]">
-      <$text text=<<currentTiddler>>/>
-    </$list>
-    &gt;
-    <$list filter="[all[current]has[prediction-type]]">
-      <$select default='' field='resolution' class='tc-tag-label tc-btn-invisible'>
-        <option value=''>???</option>
-        <option value='false'>false</option>
-        <option value='true'>true</option>
-      </$select>
-    </$list>
+    <span class="tp-status">
+      <$list filter="[all[current]get[prediction]multiply[100]round[]addsuffix[%]]">
+        <$text text=<<currentTiddler>>/>
+      </$list>
+      &gt;
+      <$list filter="[all[current]has[prediction-type]]">
+        <$select default='' field='resolution' class='tc-tag-label tc-btn-invisible'>
+          <option value=''>???</option>
+          <option value='false'>false</option>
+          <option value='true'>true</option>
+        </$select>
+      </$list>
+    </span>
 
     <$list filter="[all[current]!has[resolution]]">
-        <span class="tp-due">
-            <$list filter="[all[current]has[due]]" emptyMessage="No due date">
-                <$let current-ms=<<now TIMESTAMP>>
-                    delta-ms={{{ [all[current]get[due]format:date[TIMESTAMP]subtract<current-ms>floor[]] }}}>
-                    <$list filter="[<delta-ms>compare:number:lt[0]]">Overdue since</$list>
-                    <$list filter="[<delta-ms>compare:number:gteq[0]]">Due for</$list>
-                    <$view field="due" format="date" template={{$:/language/Tiddler/DateFormat}}/>
-                </$let>
-            </$list>
-        </span>
+      <br/>
+      <span class="tp-due">
+          <$list filter="[all[current]has[due]]" emptyMessage="No due date">
+              <$let current-ms=<<now TIMESTAMP>>
+                  delta-ms={{{ [all[current]get[due]format:date[TIMESTAMP]subtract<current-ms>floor[]] }}}>
+                  <$list filter="[<delta-ms>compare:number:lt[0]]">Overdue since</$list>
+                  <$list filter="[<delta-ms>compare:number:gteq[0]]">Due for</$list>
+                  <$view field="due" format="date" template={{$:/language/Tiddler/DateFormat}}/>
+              </$let>
+          </$list>
+      </span>
     </$list>
 </span>
