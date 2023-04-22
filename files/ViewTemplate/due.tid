@@ -1,4 +1,4 @@
-title: $:/plugins/sortega/tiddlypredict/due
+title: $:/plugins/sortega/tiddlypredict/ViewTemplate/due
 tags: $:/tags/ViewTemplate/Subtitle
 
 <$list filter="[all[current]has[prediction-type]]">
