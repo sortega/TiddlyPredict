@@ -5,7 +5,7 @@ tags: $:/tags/ViewToolbar
 
 <$list filter="[all[current]has[prediction-type]]">
   <span class='tp-status'>
-    <$list filter="[all[current]get[prediction]multiply[100]addsuffix[%]]">
+    <$list filter="[all[current]get[prediction]multiply[100]round[]addsuffix[%]]">
       <$text text=<<currentTiddler>>/>
     </$list>
     &gt;

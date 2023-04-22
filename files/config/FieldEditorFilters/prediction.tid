@@ -1,0 +1,22 @@
+title: $:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/prediction
+
+<$range
+    tiddler=<<currentTiddler>> 
+    field=<<currentField>>
+    tag="input"
+    class="tp-prediction-fieldeditor" 
+    min="0" 
+    max="1" 
+    default="0.5" 
+    increment="0.01"
+    tabindex={{$:/config/EditTabIndex}} 
+    cancelPopups="yes"/>
+    
+<$edit-text tiddler=<<currentTiddler>> 
+            field=<<currentField>> 
+            tag="input"
+            type="number"
+            default="50" 
+            class="tc-edit-fieldeditor" 
+            tabindex={{$:/config/EditTabIndex}} 
+            cancelPopups="yes"/>

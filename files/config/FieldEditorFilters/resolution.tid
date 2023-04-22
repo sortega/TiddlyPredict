@@ -1,0 +1,10 @@
+title: $:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/resolution
+
+<$select 
+    tiddler=<<currentTiddler>> 
+    field=<<currentField>> 
+    default=''>
+    <option value=''>???</option>
+    <option value='false'>false</option>
+    <option value='true'>true</option>
+</$select>

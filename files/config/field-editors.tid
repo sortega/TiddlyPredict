@@ -1,0 +1,6 @@
+title: $:/plugins/sortega/tiddlypredict/config/field-editors
+tags: $:/tags/FieldEditorFilter
+list-before: $:/config/FieldEditorFilters/default
+
+[match[prediction]then[$:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/prediction]]
+[match[resolution]then[$:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/resolution]]
