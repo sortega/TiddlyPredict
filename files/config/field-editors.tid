@@ -4,3 +4,4 @@ list-before: $:/config/FieldEditorFilters/default
 
 [match[prediction]then[$:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/prediction]]
 [match[resolution]then[$:/plugins/sortega/tiddlypredict/config/FieldEditorFilters/resolution]]
+:filter[<storyTiddler>has[prediction-type]]
