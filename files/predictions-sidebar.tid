@@ -1,6 +1,19 @@
-title: $:/plugins/sortega/tiddlypredict/predictions-sidebar.tid
+title: $:/plugins/sortega/tiddlypredict/predictions-sidebar
 tags: $:/tags/SideBar
 caption: Predictions
 list-before: $:/core/ui/SideBar/More
 
-Predictions sidebar
+!!! Predictions (<$text text={{{ [has[prediction-type]!is[draft]count[]] }}}/>)
+<$let current-ms=<<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>>>
+
+* <$link to="UnjudgedPredictions">Unjudged (<$text text={{{ [has[prediction-type]!has[resolution]] :filter[get[due]compare:date:lt<current-ms>] +[count[]] }}}/>)</$link>
+* <$link to="OpenPredictions">Open (<$text text={{{ [has[prediction-type]!has[resolution]] :filter[get[due]compare:date:gteq<current-ms>] +[count[]] }}}/>)</$link>
+* <$link to="ResolvedPredictions"> Resolved (<$text text={{{ [has[prediction-type]!is[draft]has[resolution]count[]] }}}/>) </$link>
+
+</$let>
+
+!!! [[Stats|PredictionStats]]
+
+!!! Recent predictions
+
+<<timeline subfilter:"has[prediction-type]">>

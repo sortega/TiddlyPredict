@@ -1,0 +1,8 @@
+title: $:/plugins/sortega/tiddlypredict/predictions-list
+
+<$let current-ms=<<now [UTC]YYYY0MM0DD0hh0mm0ss0XXX>>>
+    <$list
+        filter={{!!filter}}
+        template="prediction-template"
+        emptyMessage="No predictions"/>
+</$let>

@@ -1,0 +1,4 @@
+title: OpenPredictions
+filter: [has[prediction-type]!has[resolution]] :filter[get[due]compare:date:gteq<current-ms>] +[sort[due]]
+
+{{||$:/plugins/sortega/tiddlypredict/predictions-list}}

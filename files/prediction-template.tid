@@ -1,0 +1,35 @@
+title: prediction-template
+type: text/vnd.tiddlywiki
+
+<span class="tp-prediction-template">
+    <span class="tc-tiddler-title-icon tp-header-icon" style=<<title-styles>>>
+    {{$:/plugins/sortega/tiddlypredict/icons/forecast}}
+    </span>
+
+    <$link to={{!!title}}/>
+    
+    <$list filter="[all[current]get[prediction]multiply[100]round[]addsuffix[%]]">
+      <$text text=<<currentTiddler>>/>
+    </$list>
+    &gt;
+    <$list filter="[all[current]has[prediction-type]]">
+      <$select default='' field='resolution' class='tc-tag-label tc-btn-invisible'>
+        <option value=''>???</option>
+        <option value='false'>false</option>
+        <option value='true'>true</option>
+      </$select>
+    </$list>
+
+    <$list filter="[all[current]!has[resolution]]">
+        <span class="tp-due">
+            <$list filter="[all[current]has[due]]" emptyMessage="No due date">
+                <$let current-ms=<<now TIMESTAMP>>
+                    delta-ms={{{ [all[current]get[due]format:date[TIMESTAMP]subtract<current-ms>floor[]] }}}>
+                    <$list filter="[<delta-ms>compare:number:lt[0]]">Overdue since</$list>
+                    <$list filter="[<delta-ms>compare:number:gteq[0]]">Due for</$list>
+                    <$view field="due" format="date" template={{$:/language/Tiddler/DateFormat}}/>
+                </$let>
+            </$list>
+        </span>
+    </$list>
+</span>

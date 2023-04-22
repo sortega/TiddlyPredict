@@ -1,0 +1,4 @@
+title: ResolvedPredictions
+filter: [has[prediction-type]has[resolution]sort[created]]
+
+{{||$:/plugins/sortega/tiddlypredict/predictions-list}}

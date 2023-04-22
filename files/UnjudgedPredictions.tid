@@ -1,0 +1,4 @@
+title: UnjudgedPredictions
+filter: [has[prediction-type]!has[resolution]] :filter[get[due]compare:date:lt<current-ms>] +[sort[due]]
+
+{{||$:/plugins/sortega/tiddlypredict/predictions-list}}
