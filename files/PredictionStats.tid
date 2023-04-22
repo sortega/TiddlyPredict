@@ -1,7 +1,14 @@
 title: PredictionStats
 
 !! Accuracy
-[[Brier score|https://en.wikipedia.org/wiki/Brier_score]] of ??? (from ??? forecasts)
+<$let 
+    total={{{ [prediction-type[binary]!resolution[]count[]] }}} 
+    squared-error-true={{{ [prediction-type[binary]resolution[true]get[prediction]negate[]add[1]power[2]sum[]] }}}
+    squared-error-false={{{ [prediction-type[binary]resolution[false]get[prediction]power[2]sum[]] }}}
+    brier={{{ [<squared-error-true>add<squared-error-false>divide<total>] }}}>
+
+  [[Brier score|https://en.wikipedia.org/wiki/Brier_score]] of <<brier>> (from <<total>> forecasts)
+</$let>
 
 !! Calibration
 
